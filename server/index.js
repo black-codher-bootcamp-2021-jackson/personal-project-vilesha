@@ -5,9 +5,15 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
 // IMPORT YOUR SCHEMAS HERE
-require("./models/Profiles"); //This is just an example. Don't forget to delete this
+require("./models/Profile"); //This is just an example. Don't forget to delete this
 
 const app = express();
+
+app.use(express.json());
+
+app.use("/api/auth", require("./routes/auth"));
+// app.use("/api/private", require("./routes/private"));
+
 
 // This is where your API is making its initial connection to the database
 mongoose.Promise = global.Promise;

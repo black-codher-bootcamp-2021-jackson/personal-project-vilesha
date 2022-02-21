@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Profile = mongoose.model("profiles");
+const Contact = mongoose.model("contacts");
 
 const profileRoutes = (app) => {
   app.get(`/api/profile`, async (req, res) => {
@@ -8,6 +9,7 @@ const profileRoutes = (app) => {
     return res.status(200).send(profiles);
   });
 
+  // REGISTERING NEW PROFILE
   app.post(`/api/profile`, async (req, res) => {
     const profile = await Profile.create(req.body);
 

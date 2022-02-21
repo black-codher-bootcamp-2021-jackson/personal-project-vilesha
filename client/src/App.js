@@ -24,7 +24,7 @@ function App() {
           {`${user.first_name} 
           ${user.last_name}`}
         </h3>
-        <p>{user.location}</p>
+        <p>{user.email}</p>
       </li>
     );
   };
