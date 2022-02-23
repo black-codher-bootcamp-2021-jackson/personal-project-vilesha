@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+// import logo from './logo.svg';
+// import './App.css';
 
 // SERVICES THAT CALL OUR API ENDPOINTS
 import { getAllProfiles } from "./services/profileService";
 
-function App() {
+const App = () => {
   const [profiles, setProfiles] = useState(null);
 
   useEffect(() => {

@@ -7,11 +7,11 @@ const router = require('../routes/auth');
 const bcrypt = require('bcrypt');
 
 // REGISTERING PROFILE
-exports.register = (req, res, next) => {
+exports.register = async (req, res, next) => {
     const { first_name, last_name, email, password } = req.body;
 
     try {
-        const profile = Profile.create({
+        const profile = await Profile.create({
             first_name,
             last_name,
             email,
@@ -91,10 +91,10 @@ exports.login = async (req, res) => {
                             payload,
                             process.env.JWT_SECRET,
                             {expiresIn: 86400},
-                            (err, token) => {
-                                console.log("hi");
+                            (err, sendToken) => {
+                                // console.log("hi");
                                 if (err) return res.json({ message: err })
-                                return res.json({ message: "Log in successful", token: token })
+                                return res.json({ message: "Log in successful", token: sendToken, Profile })
                                 // sendToken(Profile, 200, res);
                             }
                         )

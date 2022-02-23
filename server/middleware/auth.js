@@ -21,7 +21,7 @@ exports.protect = async (req, res, next) => {
             res.status(404).json({ success: false, error: "No user found with this id" });
         }
 
-        reqq.profile = profile;
+        req.profile = profile;
 
         next();
     } catch (error) {

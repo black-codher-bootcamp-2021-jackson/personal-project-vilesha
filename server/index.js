@@ -15,6 +15,7 @@ app.use("/api/auth", require("./routes/auth"));
 // app.use("/api/private", require("./routes/private"));
 
 
+
 // This is where your API is making its initial connection to the database
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
