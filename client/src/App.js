@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+// import privateRoute from "../routes/privateRoutes";
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -43,5 +45,22 @@ const App = () => {
     </div>
   );
 }
+
+// import RegisterScreen from "./components/screens/RegisterScreen";
+// // import "./components/screens/LoginScreen";
+
+
+// const App = () => {
+//   return (
+//     <BrowserRouter>
+//       <div className="app">
+//         <Routes>
+//         <Route path="/register" component={<RegisterScreen />}/>
+//         {/* <Route path="/login" component={<LoginScreen />}/> */}
+//         </Routes>
+//         </div>
+//     </BrowserRouter>
+//   )
+// }
 
 export default App;

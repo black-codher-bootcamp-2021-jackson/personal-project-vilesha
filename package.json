@@ -1,6 +1,7 @@
 {
   "name": "black-codher-personal-project",
   "version": "1.0.0",
+  "proxy": "http://localhost",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,12 +16,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
     "dotenv": "^14.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.1.7"
+    "mongoose": "^6.1.7",
+    "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
