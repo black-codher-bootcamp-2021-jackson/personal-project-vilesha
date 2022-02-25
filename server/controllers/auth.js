@@ -32,40 +32,6 @@ exports.register = async (req, res, next) => {
 
 // LOGGING IN
 
-// exports.login = (req, res, next) => {
-//     res.send("Login Route");
-// };
-
-// exports.login = async (req, next) => {
-//     const { email, password } = req.body;
-// // console.log(email);
-//     if (!email || !password) {
-//         res.status(400).json({ success: false, error: "Please provide email and password" })
-//     }
-
-//     try {
-//         const profile = await Profile.findOne({ email }).select("+password");
-// // console.log(profile);
-//         if (!profile) {
-//             res.status(404).json({ success: false, error: "Invalid" })
-//         }
-// // // COMMENT OUT LINE 50 - 54
-//         // const isMatch = profile.matchPasswords(password);
-
-//         // if (!isMatch) {
-//         //     res.status(404).json({ success: false, error: "Invalid" })
-//         // }
-
-//         sendToken(profile, 201, res);
-
-//     } catch (error) {
-//         console.error(error.message);
-//         res.status(500).json({ success: false, error: error.message });
-//     }
-
-
-// };
-
 exports.login = async (req, res) => {
 
     const profileLoggingIn = req.body;
@@ -99,7 +65,7 @@ exports.login = async (req, res) => {
                             }
                         )
                     } else {
-                        console.log("is it me your looking for");
+                        // console.log("is it me your looking for");
                         return res.json ({message: "Invalid Username"})
                     }
                 })

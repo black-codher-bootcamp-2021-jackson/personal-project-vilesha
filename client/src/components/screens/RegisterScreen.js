@@ -3,7 +3,9 @@ import axios from "axios";
 import { Link } from 'react-router-dom';
 import "./RegisterScreen.css";
 
-const RegisterScreen = ({history}) => {
+const RegisterScreen = ({ history }) => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,8 +18,8 @@ const RegisterScreen = ({history}) => {
             }
         }
         try {
-            const {data} = await axios.post("/api/auth/register", {email, password},
-            config);
+            const { data } = await axios.post("/api/auth/register", { email, password },
+                config);
 
             localStorage.setItem("authToken", data.token);
             history.push("/");
@@ -32,33 +34,63 @@ const RegisterScreen = ({history}) => {
 
     return (
         <div className="register-screen">
-            <form onSubmit={registerHandler} className="register-screen_form">
+            <form onSubmit={registerHandler} className="register-screen_form" action="/ProfileScreen">
+                <h1 className="app-title">CULTIVATE</h1>
                 <h3 className="register-screen_title">Register</h3>
                 {/* {error && <span>{error}</span>} */}
-                <div classname="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        type="email"
-                        required id="email"
-                        placeholder="Enter email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)} />
-                </div>
+                <div className="formContainer">
+                    <div classname="email-style">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            required id="email"
+                            placeholder="Enter email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
+                    </div>
 
-                <div className="form-group">
-                    <label htmlFor="password">password:</label>
-                    <input
-                        type="password"
-                        required id="password"
-                        placeholder="Enter password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            required id="password"
+                            placeholder="Enter password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
+                    </div>
+
+                    <div className="firstName">
+                        <label htmlFor="firstName">First Name:</label>
+                        <input
+                            type="First_Name"
+                            required id="first name"
+                            placeholder="Enter first name"
+                            value={firstName}
+                            onChange={(e) => setFirstName(e.target.value)} />
+                    </div>
+
+                    <div className="lastName">
+                        <label htmlFor="lastName">Last Name:</label>
+                        <input
+                            type="lastName"
+                            required id="lastName"
+                            placeholder="Enter last name"
+                            value={lastName}
+                            onChange={(e) => setLastName(e.target.value)} />
+                    </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                    Register
-                </button>
-                <span className="register-screen__sumtext">
-                    Already have an account? <link to="/login"></link></span>
+                <div className="someTextContainer">
+                    <a className="anchorSomeText" href="/login">
+                        <span className="register-screen__sumtext">
+                            Already have an account? </span> </a>
+                </div>
+                <div className="registerButtonContainer">
+                    <a className="anchorButton" href="/profile">
+                    {/* <button type="submit" className="btn-primary"> */}
+                    <button className="btn-primary">
+                        Register
+                    </button></a>
+                </div>
             </form>
         </div>
 
